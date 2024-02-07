@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+// import PropTypes from "prop-types";
+import Footer from "./Footer";
+import Header from "./Header";
+import { Outlet } from "react-router-dom";
+import Login from "./Login";
 
-function App() {
+const AppLayout = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const setIsLoggedIn = (value) => {
+    setLoggedIn(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {!loggedIn ? (
+        <Login setIsLoggedIn={setIsLoggedIn} />
+      ) : (
+        <div className="app">
+          <Header setLoggedIn={setIsLoggedIn} />
+          <Outlet />
+          <Footer />
+        </div>
+      )}
+    </>
   );
-}
+};
 
-export default App;
+// AppLayout.propTypes = {
+//   loggedIn: PropTypes.bool.isRequired,
+//   setLoggedIn: PropTypes.func.isRequired,
+// };
+
+export default AppLayout;

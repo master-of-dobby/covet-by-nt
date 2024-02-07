@@ -1,13 +1,58 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import About from "./About";
+import Error from "./Error";
+import Contact from "./Contact";
+import Body from "./Body";
+import RestaurantMenu from "./RestaurantMenu";
+import Instamart from "./Instamart";
+import AppLayout from "./App";
+import Cart from "./Cart";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "about",
+        element: <About />,
+      },
+
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "restaurant/:id",
+        element: <RestaurantMenu />,
+      },
+      {
+        path: "instamart",
+        element: <Instamart />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+    ],
+  },
+]);
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+
   <React.StrictMode>
-    <App />
+    <RouterProvider router={appRouter}></RouterProvider>
   </React.StrictMode>
 );
 
