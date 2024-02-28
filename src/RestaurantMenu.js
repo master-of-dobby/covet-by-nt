@@ -2,11 +2,14 @@ import { useParams } from "react-router-dom";
 import { REST_IMG_URL } from "./common/constants";
 import useRestaurantInfo from "./common/useRestaurantInfo";
 import Shimmer from "./Shimmer";
+import MapWithDirections from "./MapWithDirections";
 
 const RestaurantMenu = () => {
   const params = useParams();
 
   const restaurant = useRestaurantInfo(params.id);
+
+  const destination = "San Francisco, CA";
 
   return !restaurant ? (
     <Shimmer />
@@ -32,6 +35,11 @@ const RestaurantMenu = () => {
         <h3>{restaurant.menu.items[0].name}</h3>
         <h3>{restaurant.menu.items[1].name}</h3>
       </div>
+
+      <MapWithDirections
+        apiKey="AIzaSyCh7Okz4liEvEuEYvoCZKcWTtioGBf8XRk"
+        destination={destination}
+      />
     </div>
   );
 };

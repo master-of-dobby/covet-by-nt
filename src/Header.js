@@ -27,7 +27,7 @@ const Header = ({ setLoggedIn }) => {
           </Link>
           <Link
             className="li"
-            to="/"
+            to="/restaurants"
             onClick={() => setIsMenuOpen(false)}
           >
             Restaurants
@@ -40,7 +40,7 @@ const Header = ({ setLoggedIn }) => {
             to="/contact"
             onClick={() => setIsMenuOpen(false)}
           >
-            Contact Us
+            Contact Us                                      
           </Link>
         </ul>
         {/* <ul>

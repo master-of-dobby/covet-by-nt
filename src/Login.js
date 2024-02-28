@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //import useFetch from "./useFetch";
+import loginBgImage from "./assets/loginPageBg.jpeg";
 
 const Login = (props) => {
   console.log("props ", props);
@@ -49,30 +50,42 @@ const Login = (props) => {
 
   return (
     <>
-      <div className="login-form">
-        <form>
-          <h1>Please Login</h1>
-          <label htmlFor="userEmail">Email</label>
-          <br />
-          <input
-            type="email"
-            onChange={(e) => setIsEmail(e.target.value)}
-            id="userEmail"
-          ></input>
-          <br />
-          <label htmlFor="userPassword">Password</label>
-          <br />
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            id="userPassword"
-          ></input>
-          <br />
-          <br />
-          <button onClick={(e) => loginUser(e)} type="submit">
-            Submit
-          </button>
-        </form>
+      <div className="login">
+        <div className="login-left">
+          <div className="login-form">
+            <form>
+              <h1>Sign In</h1>
+              <label htmlFor="userEmail">
+                Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
+              </label>
+              <input
+                type="email"
+                onChange={(e) => setIsEmail(e.target.value)}
+                id="userEmail"
+              ></input>
+              <br />
+              <label htmlFor="userPassword">Password</label>
+              <input
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                id="userPassword"
+              ></input>
+              <br />
+              <br />
+              <button onClick={(e) => loginUser(e)} type="submit">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="login-right">
+          <img
+            className="login-img"
+            src={loginBgImage}
+            alt="Company Banner"
+          ></img>
+        </div>
       </div>
     </>
   );

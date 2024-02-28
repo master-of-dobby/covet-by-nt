@@ -8,9 +8,9 @@ import Error from "./Error";
 import Contact from "./Contact";
 import Body from "./Body";
 import RestaurantMenu from "./RestaurantMenu";
-import Instamart from "./Instamart";
 import AppLayout from "./App";
 import Cart from "./Cart";
+import Home from "./Home";
 
 const appRouter = createBrowserRouter([
   {
@@ -29,15 +29,15 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/",
-        element: <Body />,
+        element: <Home/>,
       },
       {
         path: "restaurant/:id",
         element: <RestaurantMenu />,
       },
       {
-        path: "instamart",
-        element: <Instamart />,
+        path: "restaurants",
+        element: <Body />,
       },
       {
         path: "cart",

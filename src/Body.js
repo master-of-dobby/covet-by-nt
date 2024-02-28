@@ -98,7 +98,7 @@ export const Body = () => {
         <div className="res-container">
           {filteredRestaurants.map((restaurant) => {
             return (
-              <Link to={"restaurant/" + restaurant._id}>
+              <Link to={"/restaurant/" + restaurant._id}>
                 <RestaurantCard key={restaurant._id} resDetails={restaurant} />
               </Link>
             );

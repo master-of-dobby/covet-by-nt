@@ -3,9 +3,9 @@ const Footer = () => {
     return(
       <div className="footer">
         <div>
-          <span>Delivery</span><br></br>
-          <span>Dining Out</span><br></br>
-          <span>Takeaway / Ordering Online</span>
+          <span>Instagram</span><br></br>
+          <span>Facebook</span><br></br>
+          <span>Twitter</span>
         </div>
         © 2024 COVET, Inc. <br></br>All rights reserved.
       </div>
