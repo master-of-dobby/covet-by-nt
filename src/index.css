@@ -16,7 +16,6 @@ html {
 
 * {
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 code {
@@ -170,25 +169,40 @@ code {
   justify-content: center;
   width: 32%;
   font-family: Arial, sans-serif;
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
   height: 60%;
   width: 70%;
   border-radius: 10px;
+  box-shadow: 10px 10px 10px 10px saddlebrown;
+  border: 1px solid white;
 }
 
 .login-form h1 {
   color: black;
 }
 
+.login-form label {
+  font-size: 1.3rem;
+}
+
 .login-form input {
   margin: 1rem;
   padding: 0.5rem;
+  border: 2px solid saddlebrown;
+  border-radius: 0.5rem;
+  width: 15rem;
+  height: 2.5rem;
 }
 
 .login-form button {
-  margin-left: 30%;
-  height: 2rem;
-  width: 4rem;
+  margin-left: 38%;
+  height: 2.5rem;
+  width: 6rem;
+  background-color: saddlebrown;
+  color: white;
+  border-radius: 5px;
+  border: 1px white;
+  cursor: pointer;
 }
 .login-img {
   height: 100vh;
