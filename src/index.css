@@ -129,6 +129,14 @@ code {
 
 .restaurant-menu {
   display: flex;
+  background-color: brown;
+}
+
+.restaurant-menu .rest-image{
+  height: 16rem;
+  width: 25rem;
+  margin: 2rem;
+  border-radius: 1rem;
 }
 
 .menu-list {
@@ -213,4 +221,45 @@ code {
   height: 2rem;
   width: 4rem;
   border-radius: 10px;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1e1e1e;
+}
+
+.home-food-container {
+  margin: 2.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.home-food-img {
+  height: 18rem;
+  width: 23rem;
+  border-radius: 2.5rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+}
+.search-box input {
+  width: 30rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: white;
+  color: black;
+  font-weight: 700;
+  font-size: 1.5rem;
 }

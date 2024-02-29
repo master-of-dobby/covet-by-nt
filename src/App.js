@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 import Login from "./Login";
 
 const AppLayout = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   const setIsLoggedIn = (value) => {
     setLoggedIn(value);

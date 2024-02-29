@@ -1,25 +1,25 @@
 import { useParams } from "react-router-dom";
-import { REST_IMG_URL } from "./common/constants";
+// import { REST_IMG_URL } from "./common/constants";
 import useRestaurantInfo from "./common/useRestaurantInfo";
 import Shimmer from "./Shimmer";
-import MapWithDirections from "./MapWithDirections";
+// import MapWithDirections from "./MapWithDirections";
 
 const RestaurantMenu = () => {
   const params = useParams();
 
   const restaurant = useRestaurantInfo(params.id);
 
-  const destination = "San Francisco, CA";
+  //const destination = "San Francisco, CA";
 
   return !restaurant ? (
     <Shimmer />
   ) : (
     <div className="restaurant-menu">
       <div>
-        <h1> Restaurant Id : {params.id} </h1>
+        {/* <h1> Restaurant Id : {params.id} </h1> */}
         <img
           className="rest-image"
-          src={`${REST_IMG_URL}${restaurant.cloudinaryImageId}`}
+          src="https://m.media-amazon.com/images/I/71mlk+5TszL.jpg"
           alt="table 9 restaurant logo"
         />
         <h2>{restaurant.name} </h2>
@@ -36,10 +36,10 @@ const RestaurantMenu = () => {
         <h3>{restaurant.menu.items[1].name}</h3>
       </div>
 
-      <MapWithDirections
+      {/* <MapWithDirections
         apiKey="AIzaSyCh7Okz4liEvEuEYvoCZKcWTtioGBf8XRk"
         destination={destination}
-      />
+      /> */}
     </div>
   );
 };
