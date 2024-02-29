@@ -2,7 +2,7 @@ export const restaurant_info = [
     {
         "id": "463664",
         "name": "Robo Diner",
-        "cloudinaryImageId": "https://m.media-amazon.com/images/I/71mlk+5TszL.jpg",
+        "cloudinaryImageId": "wgwl0lbhnsoz6rnjgotq",
         "locality": "Air by pass Road",
         "areaName": "Airbypass Road",
         "costForTwo": "₹300 for two",
@@ -25,7 +25,8 @@ export const restaurant_info = [
                 {
                     name : "Chicken Lollypop",
                     id : 2,
-                }
+                },
+                
             ],
         }
     },

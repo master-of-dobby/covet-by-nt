@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-// import { REST_IMG_URL } from "./common/constants";
+import { REST_IMG_URL } from "./common/constants";
 import useRestaurantInfo from "./common/useRestaurantInfo";
 import Shimmer from "./Shimmer";
 // import MapWithDirections from "./MapWithDirections";
@@ -9,39 +9,68 @@ const RestaurantMenu = () => {
 
   const restaurant = useRestaurantInfo(params.id);
 
-  //const destination = "San Francisco, CA";
+  // const destination = "San Francisco, CA";
 
   return !restaurant ? (
     <Shimmer />
   ) : (
     <div className="restaurant-menu">
-      <div>
+      <div className="restaurant-menu-top">
+        <div>
+          <img
+            className="rest-image"
+            src={"https://m.media-amazon.com/images/I/71mlk+5TszL.jpg"}
+            alt="robo-diner-restaurant-pic"
+          />
+        </div>
         {/* <h1> Restaurant Id : {params.id} </h1> */}
+
+        <div className="res-info">
+          <div className="res-det">
+            <h1>{restaurant.name} </h1>
+            <h1>{restaurant.areaName} </h1>
+          </div>
+          <div className="rest-intro">
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              Welcome to <b>{restaurant.name}</b>, where taste buds ignite!
+              Experience culinary bliss with our iconic Chicken Biryani, a
+              flavorful masterpiece that defines our commitment to excellence.
+              Your journey to spice-infused delight starts here :)
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="restaurant-menu-bottom">
+        <div className="menu-list">
+          <h2 style={{ color: "Yellow", fontWeight: "600", fontSize: "2rem" }}>
+            MENU
+          </h2>
+          <h3>{restaurant.cuisines[1]}</h3>
+          <h3>{restaurant.cuisines[2]}</h3>
+          <h3>{restaurant.cuisines[3]}</h3>
+          <h3>{restaurant.cuisines[4]}</h3>
+          <h3>{restaurant.menu.items[0].name}</h3>
+          <h3>{restaurant.cuisines[5]}</h3>
+        </div>
+        <div className="bottom-middle">
+          <div className="diretion-button">
+            <button className="get-me-btn">Get Me↗️</button>
+          </div>
+        </div>
         <img
           className="rest-image"
-          src="https://m.media-amazon.com/images/I/71mlk+5TszL.jpg"
-          alt="table 9 restaurant logo"
-        />
-        <h2>{restaurant.name} </h2>
-        <h2>{restaurant.areaName} </h2>
+          src={`${REST_IMG_URL}${restaurant.cloudinaryImageId}`}
+          alt="food-items-pic"
+        ></img>
       </div>
-
-      <div className="menu-list">
-        <h2>MENU</h2>
-        <h3>{restaurant.menu.items[0].name}</h3>
-        <h3>{restaurant.menu.items[1].name}</h3>
-        <h3>{restaurant.menu.items[0].name}</h3>
-        <h3>{restaurant.menu.items[1].name}</h3>
-        <h3>{restaurant.menu.items[0].name}</h3>
-        <h3>{restaurant.menu.items[1].name}</h3>
-      </div>
-
-      {/* <MapWithDirections
-        apiKey="AIzaSyCh7Okz4liEvEuEYvoCZKcWTtioGBf8XRk"
-        destination={destination}
-      /> */}
     </div>
   );
 };
 
 export default RestaurantMenu;
+
+/* <MapWithDirections
+        apiKey="AIzaSyCh7Okz4liEvEuEYvoCZKcWTtioGBf8XRk"
+        destination={destination}
+      /> */

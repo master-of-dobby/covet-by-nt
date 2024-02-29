@@ -128,19 +128,81 @@ code {
 }
 
 .restaurant-menu {
-  display: flex;
   background-color: brown;
+  color: white;
 }
 
-.restaurant-menu .rest-image{
-  height: 16rem;
+.res-info {
+  display: flex;
+  flex-direction: column;
+  background-color: cornsilk;
+  border-radius: 1rem;
+  margin: auto;
+  padding: auto;
+  margin-right: 1rem;
+  color: black;
+}
+
+.res-det {
+  display: flex;
+  justify-content: space-around;
+  color: #1e1e1e;
+  height: 3vh;
+  margin-bottom: 1.5rem;
+  margin-top: -1rem;
+  padding: 0.5rem;
+}
+
+.rest-intro p {
+  margin: 0;
+  padding: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  /* background-color: aiceblue; */
+}
+.restaurant-menu-top {
+  display: flex;
+  justify-content: space-around;
+}
+
+.restaurant-menu-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.restaurant-menu-bottom .menu-list {
+  width: 18%;
+  text-align: left;
+}
+
+.restaurant-menu .rest-image {
+  height: 18rem;
   width: 25rem;
   margin: 2rem;
   border-radius: 1rem;
 }
 
 .menu-list {
-  margin: 50px;
+  margin: 0.5rem;
+}
+
+.bottom-middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom-middle .get-me-btn {
+  height: 3rem;
+  width: 7rem;
+  border-radius: 0.5rem;
+  font-size: large;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
 .top-restaurants-bar {
