@@ -80,7 +80,8 @@ export const Body = () => {
           </div>
 
           <div className="top-rated-restaurants">
-            <button className="top-rated-res-btn"
+            <button
+              className="top-rated-res-btn"
               onClick={() => {
                 //Filter restaurants which have rating more than 4.2
                 const filteredRest = filteredRestaurants.filter(

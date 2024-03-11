@@ -1,11 +1,13 @@
+import { REST_IMG_URL } from "./common/constants";
+
 const RestaurantCard = (props) => {
-  const { name, cuisines, starRating, imageUrl } = props.resDetails;
+  const { name, cuisines, starRating, cloudinaryImageId } = props.resDetails;
 
   return (
     <div className="res-card">
       <img
         className="rest-image"
-        src={imageUrl}
+        src={`${REST_IMG_URL}${cloudinaryImageId}`}
         alt="table 9 restaurant logo"
       />
       <div className="rest-details">

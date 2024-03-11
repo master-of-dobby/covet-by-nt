@@ -50,7 +50,7 @@ const RestaurantMenu = () => {
           <h3>{restaurant.cuisines[2]}</h3>
           <h3>{restaurant.cuisines[3]}</h3>
           <h3>{restaurant.cuisines[4]}</h3>
-          <h3>{restaurant.menu.items[0].name}</h3>
+          {/* <h3>{restaurant.menu.items[0].name}</h3> */}
           <h3>{restaurant.cuisines[5]}</h3>
         </div>
         <div className="bottom-middle">
