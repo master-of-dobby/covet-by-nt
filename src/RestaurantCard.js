@@ -12,8 +12,8 @@ const RestaurantCard = (props) => {
       />
       <div className="rest-details">
         <div className="res-name-items">
-          <h3> {name} </h3>
-          <h4> {cuisines} </h4>
+          <h3 style={{textDecoration:'none'}}> {name} </h3>
+          <h4> {cuisines.join(" , ")}</h4>
         </div>
 
         <div className="res-ratings-time">
