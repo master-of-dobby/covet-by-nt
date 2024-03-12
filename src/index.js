@@ -11,6 +11,7 @@ import RestaurantMenu from "./RestaurantMenu";
 import AppLayout from "./App";
 import Cart from "./Cart";
 import Home from "./Home";
+import SearchedFood from "./SearchedFood";
 
 const appRouter = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const appRouter = createBrowserRouter([
         path: "cart",
         element: <Cart />,
       },
+      {
+        path : "searchedrestaurants",
+        element: <SearchedFood />
+      }
     ],
   },
 ]);

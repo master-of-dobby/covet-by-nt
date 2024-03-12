@@ -12,7 +12,7 @@ export const Home = () => {
             url="https://t3.ftcdn.net/jpg/04/04/48/60/360_F_404486093_uS1dUsE2EirKM8nmq9vdaiTDtARbGbW1.jpg"
           />
           <HomePageFood
-            foodName={"biryani"}
+            foodName={"Biryani"}
             url="https://media.istockphoto.com/id/1333127675/photo/chicken-biryani-spicy-indian-malabar-biryani-hyderabadi-biryani-dum-biriyani-pulao-golden.webp?b=1&s=612x612&w=0&k=20&c=sBs2vTxEHz9T5tJlmrVqmli-zFYF_O40cTw0nn7Lkfc="
           />
           <HomePageFood
