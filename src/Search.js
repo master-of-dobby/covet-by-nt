@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Search() {
   const [searchText, setSearchText] = useState("");
-  //const [allRestaurants, setAllRestaurants] = useState([]);
+  const [allRestaurants, setAllRestaurants] = useState([]);
   //const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   // const [propsForSearchResultPage, setPropsForSearchResultPage] = useState({});
 
@@ -70,13 +70,11 @@ function Search() {
           placeholder="Search..."
         ></input>
         <i
-          class="fa fa-search
+          className="fa fa-search
         search-icon"
         ></i>
         <button onClick={handleSearch}>Search</button>
       </div>
-
-      
     </>
   );
 }

@@ -8,8 +8,9 @@ const path = require("path");
 const dbConfigs = require("./config/db.config");
 
 const app = express();
+const port = 8000;
 
-app.listen("8000", () => {
+app.listen(port, () => {
   console.log("server is running on port 8000");
 });
 
@@ -34,6 +35,7 @@ require(path.join(__dirname, "./routes/restaurants.routes"))(app);
 
 require(path.join(__dirname, "./routes/users.routes"))(app);
 
+port.close();
 
 // import restaurantModel from "./model/restaurant.model";
 
