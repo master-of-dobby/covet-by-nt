@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
-import SearcheResults from './SearchResults';
+import React, { useState } from "react";
+import SearcheResults from "./SearchResults";
 
-function SearchResultPage({ matched, matchedStarRatings, foodName, itemsPerPage }) {
+function SearchResultPage({
+  matched = [],
+  matchedStarRatings = [],
+  foodName,
+  itemsPerPage,
+  ids = [],
+}) {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Calculate the index range for the current page
@@ -11,6 +17,7 @@ function SearchResultPage({ matched, matchedStarRatings, foodName, itemsPerPage 
   // Filter matched and matchedStarRatings arrays based on the current page
   const displayedResults = matched.slice(startIndex, endIndex);
   const displayedRatings = matchedStarRatings.slice(startIndex, endIndex);
+  const id = ids.slice(startIndex, endIndex);
 
   // Function to handle page navigation
   const nextPage = () => setCurrentPage(currentPage + 1);
@@ -18,11 +25,16 @@ function SearchResultPage({ matched, matchedStarRatings, foodName, itemsPerPage 
 
   return (
     <div>
-      <h1 style={{ backgroundColor: "wheat", margin: "0px" }}>Item selected: {foodName}</h1>
-      
+      <h1
+        style={{ backgroundColor: "wheat", margin: "0px", paddingLeft: "2rem" }}
+      >
+        Results for ` {foodName} `
+      </h1>
+
       {/* Render search results for the current page */}
       {displayedResults.map((rest, index) => (
         <SearcheResults
+          rid={id[index]}
           key={startIndex + index} // Use a unique key for each item
           eachRes={rest}
           starRating={displayedRatings[index]}
@@ -30,10 +42,22 @@ function SearchResultPage({ matched, matchedStarRatings, foodName, itemsPerPage 
       ))}
 
       {/* Pagination */}
-      <div className='pagination'>
-        <button className="pagination-btn" onClick={prevPage} disabled={currentPage === 1}>Previous Page</button>
+      <div className="pagination">
+        <button
+          className="pagination-btn"
+          onClick={prevPage}
+          disabled={currentPage === 1}
+        >
+          Previous Page
+        </button>
         <span>Page {currentPage}</span>
-        <button className="pagination-btn" onClick={nextPage} disabled={endIndex >= matched.length}>Next Page</button>
+        <button
+          className="pagination-btn"
+          onClick={nextPage}
+          disabled={endIndex >= matched.length}
+        >
+          Next Page
+        </button>
       </div>
     </div>
   );

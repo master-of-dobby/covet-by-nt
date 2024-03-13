@@ -1,55 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { restaurant_info } from "./common/restaurant_info";
 import SearchResultPage from "./SearchResultPage";
 
 function SearchedFood() {
+  const [restaurants, setRestaurants] = useState([]);
+  const [matchedRestaurants, setMatchedRestaurants] = useState([]);
+  const [matchedStarRatings, setMatchedStarRatings] = useState([]);
+  const [matchedIds, setMatchedIds] = useState([]);
+
   const location = useLocation();
-  const foodName = location.state && location.state.foodName;
-  const restaurant = restaurant_info;
-  // console.log(restaurant[0].cuisines);
-  const matchedStarRatings = [];
+  const foodName = location.state && location.state.searchText;
+  //console.log("location", location);
 
-  const matchedRestaurants = [];
+  useEffect(() => {
+    getRestaurants();
+  }, []);
 
-  function checkRestaurants() {
-    for (let i = 0; i < restaurant.length; i++) {
-      for (let j = 0; j < restaurant[i].cuisines.length; j++) {
-        console.log(restaurant[i].cuisines[j] + foodName);
-        if (restaurant[i].cuisines[j] == foodName) {
-          console.log(foodName);
-          matchedRestaurants.push(restaurant[i].name);
-          if (i == 0) matchedStarRatings.push(4.7);
-          else matchedStarRatings.push(restaurant[i].avgRatingString);
+  console.log("foodName", foodName);
+
+  function getRestaurants() {
+    fetch("https://restaurant-project-rwmk.onrender.com/api/restaurants", {})
+      .then((res) => res.json())
+      .then((restaurants) => {
+        setRestaurants(restaurants);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  function checkRestaurants(foodName) {
+    const matchedRestaurants = [];
+    const matchedStarRatings = [];
+    const matchedIds = [];
+
+    restaurants.forEach((restaurant) => {
+      restaurant.cuisines.forEach((cuisine) => {
+        // console.log(restaurant.cuisines);
+        if (cuisine.toLowerCase().includes(foodName.toLowerCase())) {
+          // console.log(cuisine.includes(foodName));
+          //console.log(restaurant.name);
+          if (!matchedRestaurants.includes(restaurant.name)) {
+            matchedRestaurants.push(restaurant.name);
+            matchedStarRatings.push(restaurant.avgRatingString);
+            matchedIds.push(restaurant._id);
+          }
         }
-      }
-      // if(restaurant[i].cuisines.includes(foodName)) return restaurant[i].name;
-    }
+      });
+    });
+
+    setMatchedStarRatings(matchedStarRatings);
+    setMatchedIds(matchedIds);
+
+    console.log(matchedRestaurants);
+    console.log(matchedStarRatings);
+    console.log(matchedIds);
 
     return matchedRestaurants;
   }
 
-  // function showRat() {
-  //   matchedStarRatings.forEach((ratings) => {
-  //     console.log(ratings);
-  //   });
-  // }
-
-  const matched = checkRestaurants(foodName);
+  useEffect(() => {
+    if (restaurants.length > 0 && foodName) {
+      const matched = checkRestaurants(foodName);
+      setMatchedRestaurants(matched);
+    }
+  }, [restaurants, foodName]);
 
   const propsForSearchResultPage = {
-    matched: matched,
+    matched: matchedRestaurants,
     matchedStarRatings: matchedStarRatings,
     foodName: foodName,
     itemsPerPage: 5,
+    ids : matchedIds
   };
 
   return (
-    <>
-      <div>
-        <SearchResultPage {...propsForSearchResultPage} />
-      </div>
-    </>
+    <div>
+      <SearchResultPage {...propsForSearchResultPage} />
+    </div>
   );
 }
 

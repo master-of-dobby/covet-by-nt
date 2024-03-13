@@ -8,27 +8,27 @@ export const Home = () => {
         <Search />
         <div className="home-food-container">
           <HomePageFood
-            foodName={"fish-curry"}
+            searchText={"fish-curry"}
             url="https://t3.ftcdn.net/jpg/04/04/48/60/360_F_404486093_uS1dUsE2EirKM8nmq9vdaiTDtARbGbW1.jpg"
           />
           <HomePageFood
-            foodName={"Biryani"}
+            searchText={"Biryani"}
             url="https://media.istockphoto.com/id/1333127675/photo/chicken-biryani-spicy-indian-malabar-biryani-hyderabadi-biryani-dum-biriyani-pulao-golden.webp?b=1&s=612x612&w=0&k=20&c=sBs2vTxEHz9T5tJlmrVqmli-zFYF_O40cTw0nn7Lkfc="
           />
           <HomePageFood
-            foodName={"tandoori"}
+            searchText={"tandoori"}
             url="https://img.freepik.com/free-photo/closeup-shot-deliciously-prepared-chicken-served-with-onions-chili-sauce_181624-61705.jpg?size=626&ext=jpg&ga=GA1.1.2113030492.1709078400&semt=ais"
           />
           <HomePageFood
-            foodName={"chicken-lolly-pop"}
+            searchText={"chicken-lolly-pop"}
             url="https://www.shutterstock.com/image-photo/chicken-lollipop-dry-6-pieces-600nw-1936368526.jpg"
           />
           <HomePageFood
-            foodName="Prawns"
+            searchText="prawns"
             url="https://www.coastmagazine.co.uk/wp-content/uploads/sites/14/2015/01/web-1-malabar-prawn-biryani.jpg"
           />
           <HomePageFood
-            foodName="Omlette"
+            searchText="egg"
             url="https://www.kannammacooks.com/wp-content/uploads/thattu-kadai-style-avicha-muttai-omelette-recipe-1-3.jpg"
           />
         </div>

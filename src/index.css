@@ -363,6 +363,7 @@ h4 {
 
 .searched-res-name {
   width: 60%;
+  cursor: pointer;
 }
 
 .searched-res-ratings {
