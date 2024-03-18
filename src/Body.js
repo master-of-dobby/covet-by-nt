@@ -51,6 +51,17 @@ export const Body = () => {
     return <h1>Offline :() Please Check your Internet Connection!</h1>;
   }
 
+  function handleRatingChange(rating) {
+    {
+      //Filter restaurants which have rating more than 4.2
+      const filteredRest = filteredRestaurants.filter(
+        (restaurant) => restaurant.avgRatingString > rating
+      );
+      //console.log("result : " + filteredRest);
+      setFilteredRestaurants(filteredRest);
+    }
+  }
+
   return filteredRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -79,13 +90,62 @@ export const Body = () => {
             </button>
           </div>
 
+          {/* <div>
+            <form>
+              <input
+                type="radio"
+                id="star5"
+                name="rating"
+                value="5"
+                onChange={() => handleRatingChange(4.9)}
+              />
+              <label htmlFor="star5"></label>
+
+              <input
+                type="radio"
+                id="star4"
+                name="rating"
+                value="4"
+                onChange={() => handleRatingChange(4.5)}
+              />
+              <label htmlFor="star4"></label>
+
+              <input
+                type="radio"
+                id="star3"
+                name="rating"
+                value="3"
+                onChange={() => handleRatingChange(4.3)}
+              />
+              <label htmlFor="star3"></label>
+
+              <input
+                type="radio"
+                id="star2"
+                name="rating"
+                value="2"
+                onChange={() => handleRatingChange(40)}
+              />
+              <label htmlFor="star2"></label>
+
+              <input
+                type="radio"
+                id="star1"
+                name="rating"
+                value="1"
+                onChange={() => handleRatingChange(1)}
+              />
+              <label htmlFor="star1"></label>
+            </form>
+          </div> */}
+
           <div className="top-rated-restaurants">
             <button
               className="top-rated-res-btn"
               onClick={() => {
                 //Filter restaurants which have rating more than 4.2
                 const filteredRest = filteredRestaurants.filter(
-                  (restaurant) => restaurant.starRating > 4.2
+                  (restaurant) => restaurant.avgRatingString > 4.3
                 );
                 //console.log("result : " + filteredRest);
                 setFilteredRestaurants(filteredRest);

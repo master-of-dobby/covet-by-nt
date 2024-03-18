@@ -9,6 +9,12 @@ const RestaurantMenu = () => {
 
   const restaurant = useRestaurantInfo(params.id);
 
+  function displayMenu() {
+    return restaurant.cuisines.map((item, index) => (
+      <li key={index}>{item}</li>
+    ));
+  }
+
   // const destination = "San Francisco, CA";
 
   return !restaurant ? (
@@ -28,6 +34,7 @@ const RestaurantMenu = () => {
         <div className="res-info">
           <div className="res-det">
             <h1>{restaurant.name} </h1>
+            <h1>{restaurant.avgRatingString}⭐</h1>
             <h1>{restaurant.areaName} </h1>
           </div>
           <div className="rest-intro">
@@ -46,12 +53,12 @@ const RestaurantMenu = () => {
           <h2 style={{ color: "Yellow", fontWeight: "600", fontSize: "2rem" }}>
             MENU
           </h2>
+          {/* <h3>{restaurant.cuisines[0]}</h3>
           <h3>{restaurant.cuisines[1]}</h3>
           <h3>{restaurant.cuisines[2]}</h3>
           <h3>{restaurant.cuisines[3]}</h3>
-          <h3>{restaurant.cuisines[4]}</h3>
           {/* <h3>{restaurant.menu.items[0].name}</h3> */}
-          <h3>{restaurant.cuisines[5]}</h3>
+          <ul id="foodItemsList">{displayMenu()}</ul>
         </div>
         <div className="bottom-middle">
           <div className="diretion-button">

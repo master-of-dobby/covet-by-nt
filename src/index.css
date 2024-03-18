@@ -149,6 +149,7 @@ h4 {
   background-color: cornsilk;
   border-radius: 1rem;
   margin: auto;
+  margin-top: 1rem;
   padding: auto;
   margin-right: 1rem;
   color: black;
@@ -158,10 +159,14 @@ h4 {
   display: flex;
   justify-content: space-around;
   color: #1e1e1e;
-  height: 3vh;
+  height: 10vh;
   margin-bottom: 1.5rem;
   margin-top: -1rem;
   padding: 0.5rem;
+}
+
+.menu-list .foodItemsList {
+  font-size: 2rem;
 }
 
 .rest-intro p {
@@ -197,7 +202,8 @@ h4 {
 }
 
 .menu-list {
-  margin: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .bottom-middle {
