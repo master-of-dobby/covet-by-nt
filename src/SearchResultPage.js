@@ -7,6 +7,8 @@ function SearchResultPage({
   foodName,
   itemsPerPage,
   ids = [],
+  matchedLats = [],
+  matchedLongs = [],
 }) {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -18,6 +20,11 @@ function SearchResultPage({
   const displayedResults = matched.slice(startIndex, endIndex);
   const displayedRatings = matchedStarRatings.slice(startIndex, endIndex);
   const id = ids.slice(startIndex, endIndex);
+  const latis = matchedLats.slice(startIndex, endIndex);
+  const longis = matchedLongs.slice(startIndex, endIndex);
+
+  // console.log("latis " + lats);
+  // console.log("longis" + longs);
 
   // Function to handle page navigation
   const nextPage = () => setCurrentPage(currentPage + 1);
@@ -38,6 +45,8 @@ function SearchResultPage({
           key={startIndex + index} // Use a unique key for each item
           eachRes={rest}
           starRating={displayedRatings[index]}
+          lat={latis[index]}
+          long={longis[index]}
         />
       ))}
 

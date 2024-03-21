@@ -7,6 +7,8 @@ function SearchedFood() {
   const [matchedRestaurants, setMatchedRestaurants] = useState([]);
   const [matchedStarRatings, setMatchedStarRatings] = useState([]);
   const [matchedIds, setMatchedIds] = useState([]);
+  const [matchedLats, setMatchedLats] = useState([]);
+  const [matchedLongs, setMatchedLongs] = useState([]);
 
   const location = useLocation();
   const foodName = location.state && location.state.searchText;
@@ -16,7 +18,7 @@ function SearchedFood() {
     getRestaurants();
   }, []);
 
-  console.log("foodName", foodName);
+  //console.log("foodName", foodName);
 
   function getRestaurants() {
     fetch("https://restaurant-project-rwmk.onrender.com/api/restaurants", {})
@@ -31,6 +33,8 @@ function SearchedFood() {
     const matchedRestaurants = [];
     const matchedStarRatings = [];
     const matchedIds = [];
+    const matchedLats = [];
+    const matchedLongs = [];
 
     restaurants.forEach((restaurant) => {
       restaurant.cuisines.forEach((cuisine) => {
@@ -42,6 +46,8 @@ function SearchedFood() {
             matchedRestaurants.push(restaurant.name);
             matchedStarRatings.push(restaurant.avgRatingString);
             matchedIds.push(restaurant._id);
+            if (restaurant.latitude) matchedLats.push(restaurant.latitude);
+            if (restaurant.longitude) matchedLongs.push(restaurant.longitude);
           }
         }
       });
@@ -49,10 +55,12 @@ function SearchedFood() {
 
     setMatchedStarRatings(matchedStarRatings);
     setMatchedIds(matchedIds);
+    setMatchedLats(matchedLats);
+    setMatchedLongs(matchedLongs);
 
-    console.log(matchedRestaurants);
-    console.log(matchedStarRatings);
-    console.log(matchedIds);
+    // console.log(matchedRestaurants);
+    // console.log(matchedStarRatings);
+    // console.log(matchedIds);
 
     return matchedRestaurants;
   }
@@ -69,7 +77,9 @@ function SearchedFood() {
     matchedStarRatings: matchedStarRatings,
     foodName: foodName,
     itemsPerPage: 5,
-    ids : matchedIds
+    ids: matchedIds,
+    matchedLats: matchedLats,
+    matchedLongs: matchedLongs,
   };
 
   return (

@@ -157,12 +157,24 @@ h4 {
 
 .res-det {
   display: flex;
-  justify-content: space-around;
   color: #1e1e1e;
   height: 10vh;
   margin-bottom: 1.5rem;
   margin-top: -1rem;
   padding: 0.5rem;
+}
+
+
+.res-det h1 {
+  flex-grow: 3;
+}
+
+.res-det .flex-item-2 {
+  flex-grow: 1;
+}
+
+.res-det .flex-item-3 {
+  flex-grow: 2;
 }
 
 .menu-list .foodItemsList {

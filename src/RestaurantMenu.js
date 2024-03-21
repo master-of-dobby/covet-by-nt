@@ -33,9 +33,9 @@ const RestaurantMenu = () => {
 
         <div className="res-info">
           <div className="res-det">
-            <h1>{restaurant.name} </h1>
-            <h1>{restaurant.avgRatingString}⭐</h1>
-            <h1>{restaurant.areaName} </h1>
+            <h1 className="flex-item-1">{restaurant.name} </h1>
+            <h1 className="flex-item-2">{restaurant.avgRatingString}⭐</h1>
+            <h1 className="flex-item-3">{restaurant.areaName} </h1>
           </div>
           <div className="rest-intro">
             <p>
