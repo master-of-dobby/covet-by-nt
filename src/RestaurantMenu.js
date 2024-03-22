@@ -9,6 +9,23 @@ const RestaurantMenu = () => {
 
   const restaurant = useRestaurantInfo(params.id);
 
+  // const destinationLat = restaurant.latitude;
+  // const destinationLng = restaurant.longitude;
+
+  //console.log("restaurant : ", restaurant);
+  //if(restaurant.latitude != null && restaurant.longitude != null)
+  //console.log( restaurant + "==>" + restaurant.longitude);
+
+  // if (restaurant && restaurant.latitude != null && restaurant.longitude != null) {
+  //   console.log(`${restaurant.latitude} ==> ${restaurant.longitude}`);
+  // }
+
+  const openGoogleMaps = (destinationLat, destinationLng) => {
+    console.log(destinationLat, " ==> ", destinationLng);
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${destinationLat},${destinationLng}`;
+    window.open(url, "_blank");
+  };
+
   function displayMenu() {
     return restaurant.cuisines.map((item, index) => (
       <li key={index}>{item}</li>
@@ -62,7 +79,14 @@ const RestaurantMenu = () => {
         </div>
         <div className="bottom-middle">
           <div className="diretion-button">
-            <button className="get-me-btn">Get Me↗️</button>
+            <button
+              className="get-me-btn"
+              onClick={() =>
+                openGoogleMaps(restaurant.latitude, restaurant.longitude)
+              }
+            >
+              Get Me↗️
+            </button>
           </div>
         </div>
         <img
