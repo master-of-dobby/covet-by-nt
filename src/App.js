@@ -13,6 +13,7 @@ const AppLayout = () => {
   };
 
   return (
+    <>
       {!loggedIn ? (
         <Login setIsLoggedIn={setIsLoggedIn} />
       ) : (
@@ -22,6 +23,7 @@ const AppLayout = () => {
           <Footer />
         </div>
       )}
+    </>
   );
 };
 
