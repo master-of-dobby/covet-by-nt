@@ -27,9 +27,4 @@ const AppLayout = () => {
   );
 };
 
-// AppLayout.propTypes = {
-//   loggedIn: PropTypes.bool.isRequired,
-//   setLoggedIn: PropTypes.func.isRequired,
-// };
-
 export default AppLayout;

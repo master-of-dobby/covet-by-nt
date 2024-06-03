@@ -1,3 +1,22 @@
 {
-  "files.encoding": "utf8"
+  "files.encoding": "utf8",
+
+  
+    "eslint.options": {
+      "env": {
+        "browser": true,
+        "node": true
+      },
+      "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module"
+      },
+      "rules": {
+        "semi": ["error", "always"],
+        "indent": ["error", 2],
+        // Other rules...
+      }
+    }
+  
+  
 }
